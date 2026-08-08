@@ -1,6 +1,7 @@
+import os
 from utils.shortcode import generate_short_code
 from utils.qr_generator import generate_qr_code
-from fastapi import APIRouter, HTTPException
+from fastapi import APIRouter, HTTPException, Request
 from fastapi.responses import RedirectResponse
 from schema.url_schema import UrlResponseSchema, UrlCreateSchema
 from datetime import datetime, timedelta
@@ -10,8 +11,11 @@ router = APIRouter(tags=["Shorten_URL"])
 # In-memory storage for shortened URLs
 url_db = {}
 
+# Read BASE_URL from env if set (e.g., https://hotshot.onrender.com), otherwise dynamic fallback
+ENV_BASE_URL = os.getenv("BASE_URL")
+
 @router.post("/url", response_model=UrlResponseSchema)
-def shortenUrl(payload: UrlCreateSchema = None):
+def shortenUrl(request: Request, payload: UrlCreateSchema = None):
     if not payload or not payload.original_url:
         raise HTTPException(status_code=400, detail="original_url is required")
 
@@ -23,7 +27,9 @@ def shortenUrl(payload: UrlCreateSchema = None):
         if not existing.get("expired_at") or datetime.now() < existing["expired_at"]:
             raise HTTPException(status_code=400, detail="Custom alias already in use")
 
-    shorturl = f"http://localhost:8000/{shortcode}"
+    # Determine public base URL dynamically or from ENV
+    base_host = ENV_BASE_URL.rstrip("/") if ENV_BASE_URL else str(request.base_url).rstrip("/")
+    shorturl = f"{base_host}/{shortcode}"
     qr_path = generate_qr_code(shorturl)
 
     created_at = datetime.now()
