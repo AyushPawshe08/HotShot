@@ -15,15 +15,9 @@ const fmt = (d) => {
 };
 
 const labelStyle = {
-  fontSize: '0.7rem',
-  color: '#475569',
-  fontWeight: 600,
-  letterSpacing: '0.06em',
-  textTransform: 'uppercase',
-  marginBottom: '6px',
-  display: 'flex',
-  alignItems: 'center',
-  gap: '4px',
+  fontSize: '0.7rem', color: '#555555', fontWeight: 600,
+  letterSpacing: '0.06em', textTransform: 'uppercase',
+  marginBottom: '6px', display: 'flex', alignItems: 'center', gap: '4px',
 };
 
 export default function UrlResult({ data, onShortenAnother, onCopy, onDownload }) {
@@ -59,20 +53,18 @@ export default function UrlResult({ data, onShortenAnother, onCopy, onDownload }
 
         {/* Success header */}
         <div style={{ display: 'flex', alignItems: 'center', gap: '12px', marginBottom: '24px' }}>
-          <div
-            style={{
-              width: '38px', height: '38px', borderRadius: '50%', flexShrink: 0,
-              background: 'rgba(16,185,129,0.1)', border: '1px solid rgba(16,185,129,0.2)',
-              display: 'flex', alignItems: 'center', justifyContent: 'center',
-            }}
-          >
-            <CheckCircle size={19} color="#10B981" />
+          <div style={{
+            width: '36px', height: '36px', borderRadius: '50%', flexShrink: 0,
+            background: '#1A1A1A', border: '1px solid #333333',
+            display: 'flex', alignItems: 'center', justifyContent: 'center',
+          }}>
+            <CheckCircle size={18} color="#AAAAAA" />
           </div>
           <div>
-            <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, color: '#F1F5F9', fontSize: '1.1rem' }}>
+            <div style={{ fontFamily: "'Space Grotesk', sans-serif", fontWeight: 700, color: '#FFFFFF', fontSize: '1.1rem' }}>
               Link Created!
             </div>
-            <div style={{ fontSize: '0.78rem', color: '#475569' }}>Your short URL is ready to share</div>
+            <div style={{ fontSize: '0.78rem', color: '#555555' }}>Your short URL is ready to share</div>
           </div>
         </div>
 
@@ -86,23 +78,23 @@ export default function UrlResult({ data, onShortenAnother, onCopy, onDownload }
 
             {/* Short URL */}
             <div>
-              <div style={labelStyle}><Link2 size={11} color="#7C3AED" /> Short URL</div>
+              <div style={labelStyle}><Link2 size={11} color="#888888" /> Short URL</div>
               <div className="short-url-pill">
                 <a
                   href={data.short_url} target="_blank" rel="noopener noreferrer"
                   className="truncate-url"
-                  style={{ flex: 1, color: '#A78BFA', fontWeight: 600, fontSize: '0.9rem', textDecoration: 'none' }}
+                  style={{ flex: 1, color: '#EEEEEE', fontWeight: 600, fontSize: '0.9rem', textDecoration: 'none' }}
                 >
                   {data.short_url}
                 </a>
-                <ExternalLink size={13} color="#7C3AED" style={{ flexShrink: 0 }} />
+                <ExternalLink size={13} color="#666666" style={{ flexShrink: 0 }} />
               </div>
             </div>
 
             {/* Original URL */}
             <div>
               <div style={labelStyle}>Original URL</div>
-              <div className="truncate-url" style={{ color: '#64748B', fontSize: '0.82rem' }}>
+              <div className="truncate-url" style={{ color: '#555555', fontSize: '0.82rem' }}>
                 {data.original_url}
               </div>
             </div>
@@ -111,23 +103,21 @@ export default function UrlResult({ data, onShortenAnother, onCopy, onDownload }
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: '12px' }}>
               <div>
                 <div style={labelStyle}><Calendar size={10} /> Created</div>
-                <div style={{ fontSize: '0.8rem', color: '#94A3B8' }}>{fmt(data.created_at)}</div>
+                <div style={{ fontSize: '0.8rem', color: '#888888' }}>{fmt(data.created_at)}</div>
               </div>
               <div>
                 <div style={labelStyle}><Clock size={10} /> Expires</div>
-                <div style={{ fontSize: '0.8rem', color: '#94A3B8' }}>{fmt(data.expired_at)}</div>
+                <div style={{ fontSize: '0.8rem', color: '#888888' }}>{fmt(data.expired_at)}</div>
               </div>
             </div>
 
             {/* Action buttons */}
             <div style={{ display: 'flex', gap: '8px', flexWrap: 'wrap' }}>
               <button
-                id="copy-url-btn"
-                onClick={handleCopy}
-                className="btn-secondary"
+                id="copy-url-btn" onClick={handleCopy} className="btn-secondary"
                 style={{
                   flex: 1, justifyContent: 'center',
-                  ...(copied && { background: 'rgba(16,185,129,0.1)', borderColor: 'rgba(16,185,129,0.25)', color: '#34D399' }),
+                  ...(copied && { background: '#222222', borderColor: '#444444', color: '#FFFFFF' }),
                 }}
               >
                 {copied ? <CheckCircle size={14} /> : <Copy size={14} />}
@@ -146,7 +136,7 @@ export default function UrlResult({ data, onShortenAnother, onCopy, onDownload }
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', gap: '8px' }}>
               <div style={labelStyle}><QrCode size={11} /> QR Code</div>
               <div className="qr-wrapper">
-                <img src={qrSrc} alt="QR Code" style={{ width: '120px', height: '120px', display: 'block', borderRadius: '5px' }} />
+                <img src={qrSrc} alt="QR Code" style={{ width: '120px', height: '120px', display: 'block', borderRadius: '4px' }} />
               </div>
             </div>
           )}
@@ -155,9 +145,7 @@ export default function UrlResult({ data, onShortenAnother, onCopy, onDownload }
         <div className="divider" />
 
         <button
-          id="shorten-another-btn"
-          onClick={onShortenAnother}
-          className="btn-secondary"
+          id="shorten-another-btn" onClick={onShortenAnother} className="btn-secondary"
           style={{ width: '100%', justifyContent: 'center', padding: '11px' }}
         >
           <RotateCcw size={15} /> Shorten Another URL

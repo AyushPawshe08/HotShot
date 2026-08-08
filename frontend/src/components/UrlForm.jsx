@@ -48,13 +48,13 @@ export default function UrlForm({ onSuccess, onError }) {
                 fontFamily: "'Space Grotesk', sans-serif",
                 fontSize: '1.35rem',
                 fontWeight: 700,
-                color: '#F1F5F9',
+                color: '#FFFFFF',
                 marginBottom: '6px',
               }}
             >
               Create Short Link
             </h2>
-            <p style={{ color: '#475569', fontSize: '0.875rem' }}>
+            <p style={{ color: '#555555', fontSize: '0.875rem' }}>
               Paste your long URL — we'll make it tiny.
             </p>
           </div>
@@ -66,12 +66,12 @@ export default function UrlForm({ onSuccess, onError }) {
                 htmlFor="original_url"
                 style={{
                   display: 'flex', alignItems: 'center', gap: '6px',
-                  color: '#94A3B8', fontSize: '0.8rem', fontWeight: 600,
+                  color: '#666666', fontSize: '0.8rem', fontWeight: 600,
                   marginBottom: '7px', letterSpacing: '0.04em', textTransform: 'uppercase',
                 }}
               >
-                <Link2 size={13} color="#7C3AED" />
-                Original URL <span style={{ color: '#EF4444' }}>*</span>
+                <Link2 size={13} color="#888888" />
+                Original URL <span style={{ color: '#AAAAAA' }}>*</span>
               </label>
               <input
                 id="original_url" name="original_url" type="text"
@@ -93,7 +93,7 @@ export default function UrlForm({ onSuccess, onError }) {
                     marginBottom: '7px', letterSpacing: '0.04em', textTransform: 'uppercase',
                   }}
                 >
-                  <Tag size={13} color="#60A5FA" />
+                   <Tag size={13} color="#888888" />
                   Alias
                   <span style={{ fontSize: '0.68rem', color: '#334155', fontWeight: 400, textTransform: 'none', letterSpacing: 0 }}>
                     optional
@@ -114,7 +114,7 @@ export default function UrlForm({ onSuccess, onError }) {
                     marginBottom: '7px', letterSpacing: '0.04em', textTransform: 'uppercase',
                   }}
                 >
-                  <Clock size={13} color="#34D399" />
+                   <Clock size={13} color="#888888" />
                   Expiry
                   <span style={{ fontSize: '0.68rem', color: '#334155', fontWeight: 400, textTransform: 'none', letterSpacing: 0 }}>
                     optional

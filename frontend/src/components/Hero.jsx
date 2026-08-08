@@ -2,10 +2,10 @@ import { Link } from 'react-router-dom';
 import { Zap, ArrowRight, QrCode, Clock, Shield } from 'lucide-react';
 
 const features = [
-  { icon: <Zap size={18} color="#A78BFA" />,  title: 'Instant Shortening', desc: 'Generate short links in milliseconds.' },
-  { icon: <QrCode size={18} color="#60A5FA" />, title: 'Auto QR Codes',    desc: 'Every link comes with a downloadable QR.' },
-  { icon: <Clock size={18} color="#34D399" />,  title: 'Expiry Control',   desc: 'Set TTL so links expire when you want.' },
-  { icon: <Shield size={18} color="#F9A8D4" />, title: 'Custom Alias',     desc: 'Brand your links with memorable slugs.' },
+  { icon: <Zap size={18} color="#FFFFFF" />,   title: 'Instant Shortening', desc: 'Generate short links in milliseconds.' },
+  { icon: <QrCode size={18} color="#AAAAAA" />, title: 'Auto QR Codes',    desc: 'Every link comes with a downloadable QR.' },
+  { icon: <Clock size={18} color="#888888" />,  title: 'Expiry Control',   desc: 'Set TTL so links expire when you want.' },
+  { icon: <Shield size={18} color="#AAAAAA" />, title: 'Custom Alias',     desc: 'Brand your links with memorable slugs.' },
 ];
 
 export default function Hero() {
@@ -42,17 +42,17 @@ export default function Hero() {
             gap: '7px',
             padding: '5px 14px',
             borderRadius: '99px',
-            background: '#111827',
-            border: '1px solid #1E293B',
+            background: '#111111',
+            border: '1px solid #2A2A2A',
             marginBottom: '26px',
-            color: '#94A3B8',
-            fontSize: '0.78rem',
+            color: '#666666',
+            fontSize: '0.75rem',
             fontWeight: 600,
             letterSpacing: '0.07em',
             textTransform: 'uppercase',
           }}
         >
-          <Zap size={12} color="#7C3AED" fill="#7C3AED" />
+          <Zap size={11} color="#FFFFFF" fill="#FFFFFF" />
           URL Shortener · QR Generator
         </div>
 
@@ -65,19 +65,12 @@ export default function Hero() {
             fontWeight: 700,
             lineHeight: 1.1,
             letterSpacing: '-0.03em',
-            color: '#F1F5F9',
+            color: '#FFFFFF',
             marginBottom: '20px',
           }}
         >
           Shorten URLs{' '}
-          <span
-            style={{
-              background: 'linear-gradient(135deg, #A78BFA 0%, #60A5FA 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
-            }}
-          >
+          <span style={{ color: '#888888' }}>
             Instantly
           </span>
         </h1>
@@ -86,11 +79,11 @@ export default function Hero() {
         <p
           className="animate-fadeInUp delay-3"
           style={{
-            fontSize: 'clamp(0.95rem, 2vw, 1.1rem)',
-            color: '#64748B',
+            fontSize: 'clamp(0.95rem, 2vw, 1.05rem)',
+            color: '#555555',
             lineHeight: 1.7,
             marginBottom: '40px',
-            maxWidth: '520px',
+            maxWidth: '500px',
             margin: '0 auto 40px',
           }}
         >
@@ -115,9 +108,9 @@ export default function Hero() {
             className="btn-primary"
             style={{ display: 'inline-flex', alignItems: 'center', gap: '8px', textDecoration: 'none' }}
           >
-            <Zap size={16} />
+            <Zap size={15} />
             Shorten a URL
-            <ArrowRight size={15} />
+            <ArrowRight size={14} />
           </a>
           <Link
             to="/dashboard"
@@ -126,24 +119,24 @@ export default function Hero() {
               alignItems: 'center',
               gap: '8px',
               padding: '12px 22px',
-              borderRadius: '10px',
+              borderRadius: '9px',
               textDecoration: 'none',
-              color: '#64748B',
-              background: '#111827',
-              border: '1px solid #1E293B',
+              color: '#666666',
+              background: '#111111',
+              border: '1px solid #2A2A2A',
               fontWeight: 500,
-              fontSize: '0.95rem',
+              fontSize: '0.925rem',
               transition: 'all 0.2s ease',
             }}
             onMouseEnter={(e) => {
-              e.currentTarget.style.background = '#1A2235';
-              e.currentTarget.style.color = '#94A3B8';
-              e.currentTarget.style.borderColor = '#334155';
+              e.currentTarget.style.background = '#1A1A1A';
+              e.currentTarget.style.color = '#AAAAAA';
+              e.currentTarget.style.borderColor = '#3A3A3A';
             }}
             onMouseLeave={(e) => {
-              e.currentTarget.style.background = '#111827';
-              e.currentTarget.style.color = '#64748B';
-              e.currentTarget.style.borderColor = '#1E293B';
+              e.currentTarget.style.background = '#111111';
+              e.currentTarget.style.color = '#666666';
+              e.currentTarget.style.borderColor = '#2A2A2A';
             }}
           >
             View Dashboard
@@ -155,7 +148,7 @@ export default function Hero() {
           style={{
             display: 'grid',
             gridTemplateColumns: 'repeat(auto-fit, minmax(175px, 1fr))',
-            gap: '14px',
+            gap: '12px',
           }}
         >
           {features.map((f, i) => (
@@ -169,11 +162,11 @@ export default function Hero() {
                 cursor: 'default',
               }}
               onMouseEnter={(e) => {
-                e.currentTarget.style.borderColor = '#334155';
+                e.currentTarget.style.borderColor = '#3A3A3A';
                 e.currentTarget.style.transform = 'translateY(-2px)';
               }}
               onMouseLeave={(e) => {
-                e.currentTarget.style.borderColor = '#1E293B';
+                e.currentTarget.style.borderColor = '#2A2A2A';
                 e.currentTarget.style.transform = 'translateY(0)';
               }}
             >
@@ -182,14 +175,14 @@ export default function Hero() {
                 style={{
                   fontFamily: "'Space Grotesk', sans-serif",
                   fontWeight: 600,
-                  fontSize: '0.9rem',
-                  color: '#F1F5F9',
+                  fontSize: '0.875rem',
+                  color: '#EEEEEE',
                   marginBottom: '5px',
                 }}
               >
                 {f.title}
               </div>
-              <div style={{ fontSize: '0.78rem', color: '#475569', lineHeight: 1.5 }}>
+              <div style={{ fontSize: '0.775rem', color: '#555555', lineHeight: 1.5 }}>
                 {f.desc}
               </div>
             </div>

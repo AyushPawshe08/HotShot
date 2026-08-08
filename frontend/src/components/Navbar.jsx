@@ -26,27 +26,23 @@ export default function Navbar() {
         <Link to="/" style={{ display: 'flex', alignItems: 'center', gap: '9px', textDecoration: 'none' }}>
           <div
             style={{
-              width: '34px',
-              height: '34px',
-              borderRadius: '9px',
-              background: 'linear-gradient(135deg, #7C3AED 0%, #3B82F6 100%)',
+              width: '32px',
+              height: '32px',
+              borderRadius: '8px',
+              background: '#FFFFFF',
               display: 'flex',
               alignItems: 'center',
               justifyContent: 'center',
-              boxShadow: '0 2px 12px rgba(124,58,237,0.3)',
             }}
           >
-            <Zap size={18} color="white" fill="white" />
+            <Zap size={17} color="#000000" fill="#000000" />
           </div>
           <span
             style={{
               fontFamily: "'Space Grotesk', sans-serif",
               fontWeight: 700,
-              fontSize: '1.25rem',
-              background: 'linear-gradient(135deg, #A78BFA 0%, #60A5FA 100%)',
-              WebkitBackgroundClip: 'text',
-              WebkitTextFillColor: 'transparent',
-              backgroundClip: 'text',
+              fontSize: '1.2rem',
+              color: '#FFFFFF',
               letterSpacing: '-0.02em',
             }}
           >
@@ -67,24 +63,24 @@ export default function Navbar() {
                   alignItems: 'center',
                   gap: '6px',
                   padding: '7px 14px',
-                  borderRadius: '8px',
+                  borderRadius: '7px',
                   textDecoration: 'none',
                   fontWeight: 500,
                   fontSize: '0.875rem',
-                  color: active ? '#F1F5F9' : '#64748B',
-                  background: active ? '#1A2235' : 'transparent',
-                  border: `1px solid ${active ? '#334155' : 'transparent'}`,
+                  color: active ? '#FFFFFF' : '#666666',
+                  background: active ? '#1A1A1A' : 'transparent',
+                  border: `1px solid ${active ? '#333333' : 'transparent'}`,
                   transition: 'all 0.2s ease',
                 }}
                 onMouseEnter={(e) => {
                   if (!active) {
-                    e.currentTarget.style.color = '#94A3B8';
-                    e.currentTarget.style.background = '#111827';
+                    e.currentTarget.style.color = '#AAAAAA';
+                    e.currentTarget.style.background = '#141414';
                   }
                 }}
                 onMouseLeave={(e) => {
                   if (!active) {
-                    e.currentTarget.style.color = '#64748B';
+                    e.currentTarget.style.color = '#666666';
                     e.currentTarget.style.background = 'transparent';
                   }
                 }}
