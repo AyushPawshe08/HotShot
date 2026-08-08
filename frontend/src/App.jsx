@@ -3,7 +3,6 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
-import RedirectHandler from './pages/RedirectHandler';
 
 export default function App() {
   return (
@@ -22,7 +21,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/dashboard" element={<Dashboard />} />
-            <Route path="/:shortcode" element={<RedirectHandler />} />
+            {/* /:shortcode is handled server-side by vercel.json proxy → Render FastAPI */}
           </Routes>
         </main>
 
