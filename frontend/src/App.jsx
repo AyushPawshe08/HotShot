@@ -3,6 +3,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import Home from './pages/Home';
 import Dashboard from './pages/Dashboard';
+import RedirectHandler from './pages/RedirectHandler';
 
 export default function App() {
   return (
@@ -12,7 +13,7 @@ export default function App() {
           display: 'flex',
           flexDirection: 'column',
           minHeight: '100vh',
-          background: '#0F172A',
+          background: '#0B1120',
         }}
       >
         <Navbar />
@@ -21,6 +22,7 @@ export default function App() {
           <Routes>
             <Route path="/" element={<Home />} />
             <Route path="/dashboard" element={<Dashboard />} />
+            <Route path="/:shortcode" element={<RedirectHandler />} />
           </Routes>
         </main>
 

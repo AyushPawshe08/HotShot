@@ -11,8 +11,8 @@ router = APIRouter(tags=["Shorten_URL"])
 # In-memory storage for shortened URLs
 url_db = {}
 
-# Read BASE_URL from env if set (e.g., https://hotshot.onrender.com), otherwise dynamic fallback
-ENV_BASE_URL = os.getenv("BASE_URL")
+# Environment variable for frontend domain (e.g., https://hotshot-delta.vercel.app)
+FRONTEND_URL = os.getenv("FRONTEND_URL") or os.getenv("BASE_URL")
 
 @router.post("/url", response_model=UrlResponseSchema)
 def shortenUrl(request: Request, payload: UrlCreateSchema = None):
@@ -27,8 +27,19 @@ def shortenUrl(request: Request, payload: UrlCreateSchema = None):
         if not existing.get("expired_at") or datetime.now() < existing["expired_at"]:
             raise HTTPException(status_code=400, detail="Custom alias already in use")
 
-    # Determine public base URL dynamically or from ENV
-    base_host = ENV_BASE_URL.rstrip("/") if ENV_BASE_URL else str(request.base_url).rstrip("/")
+    # Determine base host: FRONTEND_URL env > Origin header > Referer > default localhost
+    origin = request.headers.get("origin")
+    referer = request.headers.get("referer")
+
+    if FRONTEND_URL:
+        base_host = FRONTEND_URL.rstrip("/")
+    elif origin:
+        base_host = origin.rstrip("/")
+    elif referer:
+        base_host = "/".join(referer.split("/")[:3])
+    else:
+        base_host = "http://localhost:5173"
+
     shorturl = f"{base_host}/{shortcode}"
     qr_path = generate_qr_code(shorturl)
 
